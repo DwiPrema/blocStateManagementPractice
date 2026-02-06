@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_practice/counter_cubit_learn/counter_cubit.dart';
+
+class CounterHome extends StatelessWidget {
+  const CounterHome({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    CounterCubit myCounter = CounterCubit();
+
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+
+          //it is a simple way to combine bloc builder and bloc listener
+          BlocConsumer(
+            bloc: myCounter,
+            builder: (context, state){
+              return Text(state.toString(), style: TextStyle(fontSize: 50));
+            }, 
+            listener: (context, state) {
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text("well"), showCloseIcon: true,));
+            }),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  myCounter.decrement();
+                },
+                child: Icon(Icons.remove, size: 20),
+              ),
+              SizedBox(width: 20),
+              ElevatedButton(
+                onPressed: () {
+                  myCounter.increment();
+                },
+                child: Icon(Icons.add, size: 20),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
