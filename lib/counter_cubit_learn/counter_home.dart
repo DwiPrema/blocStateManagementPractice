@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_practice/counter_cubit_learn/counter_cubit.dart';
 
 class CounterHome extends StatelessWidget {
@@ -12,15 +13,19 @@ class CounterHome extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          StreamBuilder<int>(
-            initialData: 0,
-            stream: myCounter.stream,
-            builder: (context, snapshot) {
-              return Text(
-                snapshot.data.toString(),
-                style: TextStyle(fontSize: 50),
-              );
+          BlocListener(
+            bloc: myCounter,
+            listener: (context, state) {
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text("well"), showCloseIcon: true,));
             },
+            child: BlocBuilder(
+              bloc: myCounter,
+              builder: (context, state) {
+                return Text(state.toString(), style: TextStyle(fontSize: 50));
+              },
+            ),
           ),
 
           Row(
@@ -30,7 +35,7 @@ class CounterHome extends StatelessWidget {
                 onPressed: () {
                   myCounter.decrement();
                 },
-                child: Icon(Icons.minimize, size: 20),
+                child: Icon(Icons.remove, size: 20),
               ),
               SizedBox(width: 20),
               ElevatedButton(
