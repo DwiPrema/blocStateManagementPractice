@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_practice/counter_cubit_learn/counter_cubit.dart';
 
-class CounterHome extends StatelessWidget {
-  const CounterHome({super.key});
+class CounterBlocConsumer extends StatelessWidget {
+  const CounterBlocConsumer({super.key});
 
   @override
   Widget build(BuildContext context) {
