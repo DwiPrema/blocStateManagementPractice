@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     //USE BLOC PROVIDER
     return BlocProvider(
       create: (context) => Counter(),
-      child: MaterialApp(home: Home()),
+      child: MaterialApp(home: HomeBlocProvider()),
     );
 
     //USE CUBIT
