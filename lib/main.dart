@@ -5,6 +5,8 @@ import 'package:flutter_bloc_practice/bloc_provider/home.dart';
 import 'package:flutter_bloc_practice/color_state/color_home.dart';
 import 'package:flutter_bloc_practice/counter_cubit_learn/counter_home.dart';
 import 'package:flutter_bloc_practice/counter_state_bloc_consumer/counter_home.dart';
+import 'package:flutter_bloc_practice/movie/bloc/movie_bloc.dart';
+import 'package:flutter_bloc_practice/movie/presentation/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +17,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //USE BLOC PROVIDER
     return BlocProvider(
-      create: (context) => Counter(),
-      child: MaterialApp(home: HomeBlocProvider()),
+      create: (context) => MovieBloc(),
+      child: MaterialApp(home: MovieExplorer()),
     );
+
+    //USE BLOC PROVIDER
+    // return BlocProvider(
+    //   create: (context) => Counter(),
+    //   child: MaterialApp(home: MovieExplorer()),
+    // );
 
     //USE CUBIT
     // return MaterialApp(home: CounterCubitHome());
