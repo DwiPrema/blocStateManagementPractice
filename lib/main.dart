@@ -7,8 +7,16 @@ import 'package:flutter_bloc_practice/counter_cubit_learn/counter_home.dart';
 import 'package:flutter_bloc_practice/counter_state_bloc_consumer/counter_home.dart';
 import 'package:flutter_bloc_practice/movie/bloc/movie_bloc.dart';
 import 'package:flutter_bloc_practice/movie/presentation/home.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+// void main() {
+//   runApp(const MyApp());
+// }
+
+Future<void> main() async {
+  // 2. LOAD filenya di sini! (Ini yang bikin error kalau lupa)
+  await dotenv.load(fileName: ".env");
+
   runApp(const MyApp());
 }
 
