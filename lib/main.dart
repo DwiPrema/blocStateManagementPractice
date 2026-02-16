@@ -13,12 +13,12 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 //   runApp(const MyApp());
 // }
 
-Future<void> main() async {
-  // 2. LOAD filenya di sini! (Ini yang bikin error kalau lupa)
-  await dotenv.load(fileName: ".env");
+// Future<void> main() async {
+//   // 2. LOAD filenya di sini! (Ini yang bikin error kalau lupa)
+//   await dotenv.load(fileName: ".env");
 
-  runApp(const MyApp());
-}
+//   runApp(const MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
