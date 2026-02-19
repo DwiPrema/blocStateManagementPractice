@@ -4,9 +4,9 @@ import 'package:flutter_bloc_practice/multi_bloc_provider_and_listener/bloc/coun
 import 'package:flutter_bloc_practice/multi_bloc_provider_and_listener/bloc/theme.dart';
 import 'package:flutter_bloc_practice/multi_bloc_provider_and_listener/pages/home_page.dart';
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
